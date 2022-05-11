@@ -22,6 +22,23 @@ import "../style/index.css";
         city: null
     }
  */
+
+function positionLeftorR(variable) {
+  if (variable == "position-left" || variable == null) {
+    return "position-left";
+  } else if (variable == "position-right") {
+    return "position-right";
+  }
+}
+
+function isVariableNull(variable, filler) {
+  if (variable == null) {
+    return filler;
+  } else {
+    return variable;
+  }
+}
+
 function render(variables = {}) {
   console.log("These are the current variables: ", variables); //print on the console
   // here we ask the logical questions to make decisions on how to build the html
@@ -33,14 +50,32 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${isVariableNull(variables.name, "Name and")} ${isVariableNull(
+    variables.lastname,
+    "Last Name"
+  )}</h1>
+          <h2>${isVariableNull(variables.role, "Role")}</h2>
+          <h3>${isVariableNull(variables.city, "City")}, ${isVariableNull(
+    variables.country,
+    "Country"
+  )}</h3>
+          <ul class="${positionLeftorR(variables.socialMediaPosition)}">
+,             <li><a href="${isVariableNull(
+    variables.twitter,
+    "https://twitter.com/4geeksacademy"
+  )}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="${isVariableNull(
+              variables.github,
+              "https://github.com/4geeksacademy"
+            )}"><i class="fab fa-github"></i></a></li>
+            <li><a href="${isVariableNull(
+              variables.linkedin,
+              "https://linkedin.com/4geeksacademy"
+            )}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${isVariableNull(
+              variables.instagram,
+              "https://instagram.com/4geeksacademy"
+            )}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -58,10 +93,10 @@ window.onload = function() {
     // this is the url for the profile avatar
     avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
     // social media bar position (left or right)
-    socialMediaPosition: "position-left",
+    socialMediaPosition: null,
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: null,
     linkedin: null,
     instagram: null,
     name: null,
