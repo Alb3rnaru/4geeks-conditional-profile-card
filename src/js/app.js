@@ -64,17 +64,17 @@ function render(variables = {}) {
     variables.twitter,
     "https://twitter.com/4geeksacademy"
   )}"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="${isVariableNull(
+            <li><a href="https://github.com/${isVariableNull(
               variables.github,
-              "https://github.com/4geeksacademy"
+              "4geeksacademy"
             )}"><i class="fab fa-github"></i></a></li>
-            <li><a href="${isVariableNull(
+            <li><a href="https://linkedin.com/${isVariableNull(
               variables.linkedin,
-              "https://linkedin.com/4geeksacademy"
+              "4geeksacademy"
             )}"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="${isVariableNull(
+            <li><a href="https://instagram.com/${isVariableNull(
               variables.instagram,
-              "https://instagram.com/4geeksacademy"
+              "4geeksacademy"
             )}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
